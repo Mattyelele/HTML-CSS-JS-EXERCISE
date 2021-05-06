@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JS Exercise </title>
+    </head>
+    <body>
+        <h1> JavaScript Exercise </h1>
+        <h2> Confirm Box </h2>
+
+        <button onclick="conBox()"> Confirm Box </button>
+
+        <p id="demo"></p>
+
+        <h3> Rollover </h3>
+
+        <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="Images/Box_Red.jpg" alt="redbox" width="32" height="32">
+
+        <h4> Slidshow </h4>
+
+        <img name="slide" width="400" height="200">
+
+        <script>
+            function conBox() {
+                var txt;
+                if (confirm("Press a button :)")) {
+                    txt = "You pressed OK!"
+                } else {
+                    txt = "You pressed cancel!";
+                }
+                document.getElementById("demo").innerHTML = txt;
+            }
+
+            function bigImg(x) {
+                x.style.height = "64px";
+                x.style.width = "64px";
+            }
+
+            function normalImg(x) {
+                x.style.height = "32px";
+                x.style.width = "32px";
+            }
+
+            var i = 0;
+            var images = [];
+            var time = 3000;
+
+            images[0] = 'Images/LA.jpg';
+            images[1] = 'Images/NYC.jpg';
+            images[2] = 'Images/MEXICO.jpg';
+
+            function changeImg() {
+                document.slide.src = images[i];
+
+                if (i<images.length - 1)
+                {
+                    i++;
+                }
+                else
+                {
+                    i = 0;
+                }
+
+                setTimeout("changeImg()", time);
+            }
+
+            window.onload = changeImg;
+        </script>
+    </body>
+</html>
